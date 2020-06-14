@@ -69,3 +69,8 @@ Make a one page jpg or tif formatted image containing Tigrinya text. Save it as 
 ```
 tesseract -l tir page01.tif output01
 ``` 
+
+The outputo1 file will contain the editable text version of the scanned document.
+
+### Training Tesseract (making training files for Tesseract OCR)
+Now we will discuss how to train Tesseract...
