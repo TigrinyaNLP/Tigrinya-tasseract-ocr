@@ -16,6 +16,9 @@ wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master
 wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.wordlist
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.punc
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.numbers
+mkdir fonts/truetype/abyssinica
+cd fonts/truetype/abyssinica
+wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/fonts/truetype/abyssinica/AbyssinicaSIL.ttf
 
 cd ~/tesstutorial
 git clone --depth 1 https://github.com/tesseract-ocr/tesseract.git
@@ -28,9 +31,12 @@ wget https://github.com/tesseract-ocr/tessdata_best/raw/master/tir.traineddata
 wget https://github.com/tesseract-ocr/tessdata_best/raw/master/heb.traineddata
 wget https://github.com/tesseract-ocr/tessdata_best/raw/master/chi_sim.traineddata
 
-tesstrain.sh --fonts_dir langdata/fonts --lang tir --linedata_only  --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --output_dir ~/tesstutorial/tirtrain --fontlist "Abyssinica SIL"
 
-tesstrain.sh --fonts_dir langdata/fonts --lang tir --linedata_only  --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --fontlist "Abyssinica SIL" --output_dir ~/tesstutorial/tireval
+
+
+tesstrain.sh --fonts_dir ~/tesstutorial/langdata/fonts --lang tir --linedata_only  --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --output_dir ~/tesstutorial/tirtrain --fontlist "Abyssinica SIL"
+
+tesstrain.sh --fonts_dir ~/tesstutorial/langdata/fonts --lang tir --linedata_only  --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --fontlist "Abyssinica SIL" --output_dir ~/tesstutorial/tireval
 
 mkdir -p ~/tesstutorial/tiroutput
 mkdir -p ~/tesstutorial/tiroutput/base
