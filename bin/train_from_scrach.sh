@@ -16,6 +16,8 @@ wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master
 wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.wordlist
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.punc
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.numbers
+mkdir fonts
+mkdir fonts/truetype
 mkdir fonts/truetype/abyssinica
 cd fonts/truetype/abyssinica
 wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/fonts/truetype/abyssinica/AbyssinicaSIL.ttf
@@ -40,4 +42,4 @@ tesstrain.sh --fonts_dir ~/tesstutorial/langdata/fonts --lang tir --linedata_onl
 
 mkdir -p ~/tesstutorial/tiroutput
 mkdir -p ~/tesstutorial/tiroutput/base
-lstmtraining --debug_interval 100   --traineddata ~/tesstutorial/tirtrain/tir/tir.traineddata   --net_spec '[1,36,0,1 Ct3,3,16 Mp3,3 Lfys48 Lfx96 Lrx96 Lfx256 O1c352]'  --model_output ~/tesstutorial/tiroutput/base --learning_rate 20e-4   --train_listfile ~/tesstutorial/tirtrain/tir.training_files.txt   --eval_listfile ~/tesstutorial/tireval/tir.training_files.txt   --max_iterations 5000 &>~/tesstutorial/tiroutput/basetrain.log
+lstmtraining --debug_interval 100   --traineddata ~/tesstutorial/tirtrain/tir/tir.traineddata   --net_spec '[1,36,0,1 Ct3,3,16 Mp3,3 Lfys48 Lfx96 Lrx96 Lfx256 O1c352]'  --model_output ~/tesstutorial/tiroutput/base --learning_rate 20e-4   --train_listfile ~/tesstutorial/tirtrain/tir.training_files.txt   --eval_listfile ~/tesstutorial/tireval/tir.training_files.txt   --max_iterations 5000 debug_interval -1  &>~/tesstutorial/tiroutput/basetrain.log
