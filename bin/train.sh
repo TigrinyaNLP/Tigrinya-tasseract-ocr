@@ -2,7 +2,7 @@
 if [ "$1" = "scratch" ]; then
     TIR_TESSDATA="~/build/tirtrain/tir/tir.traineddata"
 else if [ "$1" = "best" ]; then
-    TIR_TESSDATA="~/build/tesseract/tessdata/best"
+    TIR_TESSDATA="~/build/best/tir.traineddata"
 else
     echo "Usage: train.sh [ scratch | best ]  -- start training from already existing best tir.tessdata or train from scratch from the empty one built earlier"
     exit 1;
