@@ -17,7 +17,7 @@ lstmtraining   --traineddata "$TIR_TESSDATA"  \
                --debug_interval -1  \
                --model_output ~/build/tiroutput/base \
                --train_listfile ~/build/tirtrain/tir.training_files.txt \
-               --eval_listfile ~/build/tireval/tir.training_files.txt
+               --eval_listfile ~/build/tirtrain/tir.training_files.txt
 
 
 #lstmtraining --stop_training  --continue_from ~/tesstutorial/tiroutput/base_checkpoint  --traineddata ~/tesstutorial/tirtrain/tir/tir.traineddata   --model_output ~/tesstutorial/tiroutput/tir.traineddata

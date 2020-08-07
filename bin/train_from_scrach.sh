@@ -35,8 +35,8 @@ wget https://github.com/tesseract-ocr/tessdata_best/raw/master/tir.traineddata
 wget https://github.com/tesseract-ocr/tessdata_best/raw/master/heb.traineddata
 wget https://github.com/tesseract-ocr/tessdata_best/raw/master/chi_sim.traineddata
 
+cd ~/build
 tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts --lang tir --linedata_only --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --output_dir ~/build/tirtrain --fontlist "Abyssinica SIL"
-tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts --lang tir --linedata_only --noextract_font_properties --langdata_dir langdata  --tessdata_dir tesseract/tessdata --output_dir ~/build/tireval --fontlist "Abyssinica SIL"
 
 
 #sh train.sh
