@@ -10,6 +10,7 @@ fi
 
 mkdir ~/build/tiroutput
 lstmtraining   --traineddata "$TIR_TESSDATA"  \
+               --old_traineddata ~/build/best/tir.traineddata  \
                --net_spec '[1,36,0,1Ct3,3,16Mp3,3Lfys48Lfx96Lrx96Lfx128O1c1]' \
                --learning_rate 0.001 \
                --momentum  0.5 \
@@ -20,7 +21,7 @@ lstmtraining   --traineddata "$TIR_TESSDATA"  \
                --eval_listfile ~/build/tirtrain/tir.training_files.txt
 
 
-#lstmtraining --stop_training  --continue_from ~/tesstutorial/tiroutput/base_checkpoint  --traineddata ~/tesstutorial/tirtrain/tir/tir.traineddata   --model_output ~/tesstutorial/tiroutput/tir.traineddata
+#lstmtraining --stop_training  --continue_from ~/build/tiroutput/base_checkpoint  --traineddata ~/build/tirtrain/tir/tir.traineddata   --model_output ~/tesstutorial/tiroutput/tir.traineddata
 
 # TEST
-# tesseract  --tessdata-dir ~/Tigrinya-tasseract-ocr/tiroutput/ -l tir Tigrinya-tasseract-ocr/resources/test/tif/tir.bible_01.tif  tir.bible_01
+# tesseract  --tessdata-dir ~/build/tiroutput/ -l tir  ~/Tigrinya-tasseract-ocr/resources/test/tif/tir.bible_01.tif  tir.bible_01
