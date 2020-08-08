@@ -55,6 +55,12 @@ combine_tessdata -e ~/build/tesseract/tessdata/tir.traineddata tir.lstm
 
 lstmeval --model ~/build/tir.lstm --traineddata  ~/build/tesseract/tessdata/tir.traineddata --eval_listfile ~/build/tirtrain/tir.training_files.txt
 
-
-
-#sh train.sh
+#train
+cd ~build
+mkdir ~/build/tiroutput
+lstmtraining   --continue_from tir.lstm \
+               --model_output ~/build/tiroutput/base \
+               --traineddata  ~/build/tesseract/tessdata/tir.traineddata \
+               --train_listfile ~/build/tirtrain/tir.training_files.txt \
+               --max_iterations 1000 \
+               --debug_interval -1
