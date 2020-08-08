@@ -16,10 +16,17 @@ wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/Ethiopic.xh
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/Latin.xheights
 mkdir tir
 cd tir
-wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.training_text
-wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.wordlist
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.punc
-wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/tir/tir.numbers
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/forbidden_characters
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/okfonts.txt
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/tir.punc
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/tir.singles_text
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/tir.training_text
+#wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.training_text
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/tir.unicharset
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/tir/tir.wordlist
+#wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/langdata/tir/tir.wordlist
+
 mkdir fonts
 cd fonts
 wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master/resources/fonts/truetype/abyssinica/AbyssinicaSIL.ttf
@@ -44,7 +51,7 @@ tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts \
 
 
 #evaluage
-combine_tessdata -e ~/build/tesseract/tessdata/tir.tessdata tir.lstm
+combine_tessdata -e ~/build/tesseract/tessdata/tir.traineddata tir.lstm
 
 lstmeval --model ~/build/tir.lstm --traineddata  ~/build/tesseract/tessdata/tir.tessdata --eval_listfile ~/build/tirtrain/tir.training_files.txt
 
