@@ -44,7 +44,7 @@ tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts \
              --linedata_only \
              --noextract_font_properties \
              --langdata_dir langdata  \
-             --tessdata_dir best \
+             --tessdata_dir  ~/build/tesseract/tessdata \
              --save_box_tiff \
              --output_dir ~/build/tirtrain \
              --fontlist "Abyssinica SIL"
@@ -53,7 +53,7 @@ tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts \
 #evaluage
 combine_tessdata -e ~/build/tesseract/tessdata/tir.traineddata tir.lstm
 
-lstmeval --model ~/build/tir.lstm --traineddata  ~/build/tesseract/tessdata/tir.tessdata --eval_listfile ~/build/tirtrain/tir.training_files.txt
+lstmeval --model ~/build/tir.lstm --traineddata  ~/build/tesseract/tessdata/tir.traineddata --eval_listfile ~/build/tirtrain/tir.training_files.txt
 
 
 
