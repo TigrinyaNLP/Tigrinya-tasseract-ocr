@@ -26,18 +26,28 @@ wget https://raw.githubusercontent.com/TigrinyaNLP/Tigrinya-tasseract-ocr/master
 
 cd ~/build
 git clone --depth 1 https://github.com/tesseract-ocr/tesseract.git
-mkdir ~/build/tesseract/tessdata
+cd ~/build/tesseract/tessdata
 wget https://github.com/tesseract-ocr/tessdata_best/raw/master/tir.traineddata
 
 cd ~/build
+
+
 tesstrain.sh --fonts_dir ~/build/langdata/tir/fonts \
              --lang tir \
              --linedata_only \
              --noextract_font_properties \
              --langdata_dir langdata  \
              --tessdata_dir best \
+             --save_box_tiff \
              --output_dir ~/build/tirtrain \
              --fontlist "Abyssinica SIL"
+
+
+#evaluage
+combine_tessdata -e ~/build/tesseract/tessdata/tir.tessdata tir.lstm
+
+lstmeval --model ~/build/tir.lstm --traineddata  ~/build/tesseract/tessdata/tir.tessdata --eval_listfile ~/build/tirtrain/tir.training_files.txt
+
 
 
 #sh train.sh
