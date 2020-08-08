@@ -64,3 +64,8 @@ lstmtraining   --continue_from tir.lstm \
                --train_listfile ~/build/tirtrain/tir.training_files.txt \
                --max_iterations 1000 \
                --debug_interval -1
+
+lstmtraining --stop_training \
+             --continue_from ~/build/tiroutput/base_checkpoint \
+             --traineddata  ~/build/tesseract/tessdata/tir.traineddata \
+              --model_output ~/tesstutorial/tiroutput/tir.traineddata
